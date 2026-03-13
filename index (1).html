@@ -1,0 +1,1970 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema GO PRO - Alexa Torres | Immunotec</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* IMMUNOTEC COLOR PALETTE */
+        :root {
+            --immunotec-blue: #0066B3;
+            --immunotec-dark-blue: #004A8C;
+            --immunotec-light-blue: #4A90E2;
+            --immunotec-sky: #B3D9F2;
+            --immunotec-white: #FFFFFF;
+            --immunotec-light-gray: #F5F8FA;
+            --immunotec-gray: #E8EEF3;
+            --immunotec-text: #2C3E50;
+            --immunotec-accent: #00A3E0;
+        }
+        
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: var(--immunotec-white);
+            color: var(--immunotec-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* SUBTLE BACKGROUND PATTERN */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 102, 179, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 163, 224, 0.03) 0%, transparent 50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        /* CONTAINER */
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 40px 20px;
+            position: relative;
+        }
+        
+        /* HEADER */
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, var(--immunotec-blue) 0%, var(--immunotec-dark-blue) 100%);
+            padding: 50px 20px 40px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 30px rgba(0, 102, 179, 0.3);
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 163, 224, 0.2) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .logo-container {
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--immunotec-white);
+            letter-spacing: 3px;
+            text-shadow: 0 0 30px rgba(0, 163, 224, 0.6);
+        }
+        
+        .header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--immunotec-white);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 800;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            color: var(--immunotec-sky);
+            font-weight: 500;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .universal-badge {
+            display: inline-block;
+            background: var(--immunotec-white);
+            color: var(--immunotec-blue);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            margin-top: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 20px rgba(0, 163, 224, 0.4);
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* LEADER SECTION - REMOVED, NOW USING VIDEO SECTION */
+        .leader-intro-box {
+            background: linear-gradient(135deg, var(--immunotec-light-gray) 0%, var(--immunotec-white) 100%);
+            padding: 40px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 102, 179, 0.1);
+            border: 2px solid var(--immunotec-blue);
+        }
+        
+        /* VIDEO SECTION STYLES */
+        .video-section {
+            background: linear-gradient(135deg, var(--immunotec-light-gray) 0%, var(--immunotec-white) 100%);
+            padding: 60px 20px;
+            margin-bottom: 40px;
+            border-top: 4px solid var(--immunotec-blue);
+            border-bottom: 4px solid var(--immunotec-blue);
+            position: relative;
+        }
+        
+        .video-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 102, 179, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 163, 224, 0.03) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .video-intro-title {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.3rem;
+            color: var(--immunotec-blue);
+            margin-bottom: 20px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 2;
+            padding-left: 0;
+        }
+        
+        .video-intro-title::before {
+            display: none;
+        }
+        
+        .video-intro-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--immunotec-text);
+            margin-bottom: 50px;
+            font-weight: 500;
+            line-height: 1.8;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .videos-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: nowrap;
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .video-wrapper {
+            flex: 0 0 calc(33.333% - 17px);
+            max-width: 340px;
+            min-width: 260px;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            background: var(--immunotec-white);
+            box-shadow: 
+                0 10px 40px rgba(0, 0, 0, 0.15),
+                0 0 0 3px var(--immunotec-blue);
+            transition: all 0.4s ease;
+        }
+        
+        .video-wrapper:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 
+                0 25px 60px rgba(0, 102, 179, 0.3),
+                0 0 0 4px var(--immunotec-dark-blue);
+        }
+        
+        .video-frame {
+            width: 100%;
+            height: 500px;
+            border: none;
+            display: block;
+            background: #000;
+        }
+        
+        .video-label {
+            position: absolute;
+            bottom: 80px;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 102, 179, 0.95), rgba(0, 102, 179, 0.85));
+            padding: 12px 15px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-align: center;
+            color: var(--immunotec-white);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 2;
+        }
+        
+        .video-description-card {
+            background: var(--immunotec-white);
+            padding: 15px;
+            font-size: 0.9rem;
+            color: var(--immunotec-text);
+            text-align: center;
+            line-height: 1.5;
+            font-weight: 500;
+            border-top: 2px solid var(--immunotec-gray);
+        }
+        
+        /* TYPOGRAPHY */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin-top: 60px;
+            margin-bottom: 20px;
+            color: var(--immunotec-blue);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--immunotec-blue), var(--immunotec-accent));
+            box-shadow: 0 0 15px var(--immunotec-blue);
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            color: var(--immunotec-dark-blue);
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        p {
+            font-size: 1.05rem;
+            margin: 15px 0;
+            line-height: 1.8;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        strong {
+            font-weight: 700;
+            color: var(--immunotec-dark-blue);
+        }
+        
+        /* BOXES */
+        .box {
+            background: var(--immunotec-white);
+            border-radius: 20px;
+            padding: 35px;
+            margin-top: 40px;
+            border: 2px solid var(--immunotec-gray);
+            box-shadow: 0 10px 30px rgba(0, 102, 179, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(0, 102, 179, 0.05), 
+                transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .box:hover::before {
+            left: 100%;
+        }
+        
+        .box:hover {
+            border-color: var(--immunotec-blue);
+            box-shadow: 0 15px 40px rgba(0, 102, 179, 0.2);
+        }
+        
+        /* BRANDS BOX - ELEGANT IMMUNOTEC */
+        .brands-box {
+            background: linear-gradient(135deg, var(--immunotec-white) 0%, var(--immunotec-light-gray) 100%);
+            border-radius: 25px;
+            padding: 60px 40px;
+            margin-top: 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0, 102, 179, 0.15);
+            border: 3px solid var(--immunotec-blue);
+        }
+        
+        .brands-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 102, 179, 0.05) 0%, transparent 70%);
+            animation: rotate 25s linear infinite;
+        }
+        
+        .brands-box h2 {
+            color: var(--immunotec-blue);
+            position: relative;
+            z-index: 2;
+            padding-left: 0;
+            font-size: 2.3rem;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 4px rgba(0, 102, 179, 0.1);
+        }
+        
+        .brands-box h2::before {
+            display: none;
+        }
+        
+        .brands-box p {
+            color: var(--immunotec-text);
+            position: relative;
+            z-index: 2;
+            font-size: 1.3rem;
+            font-weight: 500;
+            line-height: 1.9;
+            max-width: 800px;
+            margin: 25px auto;
+        }
+        
+        .brands-box-subtitle {
+            font-size: 1.1rem;
+            color: var(--immunotec-dark-blue);
+            font-style: italic;
+            margin-top: 20px;
+            font-weight: 400;
+        }
+        
+        .immunotec-logo {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            margin-top: 30px;
+        }
+        
+        .immunotec-logo a {
+            display: inline-block;
+            background: var(--immunotec-white);
+            color: var(--immunotec-blue);
+            padding: 25px 50px;
+            border-radius: 20px;
+            font-size: 2rem;
+            font-weight: 900;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 2px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .immunotec-logo a:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+        
+        /* HIGHLIGHT BOX */
+        .highlight-box {
+            background: linear-gradient(135deg, var(--immunotec-blue) 0%, var(--immunotec-dark-blue) 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0, 102, 179, 0.4);
+        }
+        
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, 
+                transparent 30%, 
+                rgba(255, 255, 255, 0.1) 50%, 
+                transparent 70%);
+            animation: diagonalMove 6s linear infinite;
+        }
+        
+        @keyframes diagonalMove {
+            from { transform: translate(-100%, -100%); }
+            to { transform: translate(100%, 100%); }
+        }
+        
+        .highlight-box h3 {
+            color: var(--immunotec-white);
+            font-size: 1.8rem;
+            margin-top: 0;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .highlight-box p {
+            position: relative;
+            z-index: 2;
+            color: var(--immunotec-white);
+        }
+        
+        /* STATS GRID */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .stat-card {
+            background: var(--immunotec-white);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 3px solid var(--immunotec-gray);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                rgba(0, 102, 179, 0.05) 0%, 
+                transparent 50%, 
+                rgba(0, 163, 224, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 102, 179, 0.3);
+            border-color: var(--immunotec-blue);
+        }
+        
+        .stat-card:hover::before {
+            opacity: 1;
+        }
+        
+        .stat-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3rem;
+            color: var(--immunotec-blue);
+            font-weight: 900;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .stat-label {
+            color: var(--immunotec-text);
+            margin-top: 10px;
+            font-size: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* CTA BUTTON */
+        .cta {
+            text-align: center;
+            margin-top: 70px;
+            margin-bottom: 50px;
+        }
+        
+        .cta h2 {
+            padding-left: 0;
+        }
+        
+        .cta h2::before {
+            display: none;
+        }
+        
+        .cta a {
+            display: inline-block;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: var(--immunotec-white);
+            padding: 20px 45px;
+            border-radius: 50px;
+            font-size: 1.3rem;
+            text-decoration: none;
+            font-weight: bold;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
+        }
+        
+        .cta a::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+            transform: translate(-50%, -50%);
+            transition: width 0.5s ease, height 0.5s ease;
+        }
+        
+        .cta a:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 50px rgba(37, 211, 102, 0.7);
+        }
+        
+        .cta a:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+        
+        /* TABLE */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 25px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 102, 179, 0.1);
+        }
+        
+        table th {
+            background: linear-gradient(135deg, var(--immunotec-blue), var(--immunotec-dark-blue));
+            color: var(--immunotec-white);
+            padding: 18px;
+            text-align: left;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        table td {
+            padding: 15px 18px;
+            border-bottom: 1px solid var(--immunotec-gray);
+            background: var(--immunotec-white);
+        }
+        
+        table tr:nth-child(even) td {
+            background: var(--immunotec-light-gray);
+        }
+        
+        table tr:hover td {
+            background: rgba(0, 102, 179, 0.05);
+        }
+        
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 60px;
+            background: var(--immunotec-light-gray);
+            border-top: 4px solid var(--immunotec-blue);
+            position: relative;
+        }
+        
+        .footer p {
+            position: relative;
+            z-index: 2;
+            color: var(--immunotec-text);
+        }
+        
+        .footer strong {
+            color: var(--immunotec-blue);
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 2px;
+            font-size: 1.2rem;
+        }
+        
+        /* LISTS */
+        ul {
+            margin-left: 25px;
+            margin-top: 15px;
+        }
+        
+        li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 10px;
+        }
+        
+        li::before {
+            content: '▸';
+            position: absolute;
+            left: -15px;
+            color: var(--immunotec-blue);
+            font-weight: bold;
+        }
+        
+        /* VIDEO TRAINING SECTION */
+        .week-section {
+            margin-top: 50px;
+            border: 3px solid var(--immunotec-gray);
+            border-radius: 20px;
+            overflow: hidden;
+            background: var(--immunotec-white);
+            box-shadow: 0 10px 30px rgba(0, 102, 179, 0.1);
+        }
+        
+        .week-header {
+            background: linear-gradient(135deg, var(--immunotec-blue), var(--immunotec-dark-blue));
+            padding: 30px;
+            text-align: center;
+            color: var(--immunotec-white);
+        }
+        
+        .week-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        
+        .week-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+        
+        .week-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+        
+        .videos-list {
+            padding: 30px;
+        }
+        
+        .video-item {
+            display: flex;
+            gap: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            background: var(--immunotec-light-gray);
+            border-radius: 15px;
+            border-left: 5px solid var(--immunotec-blue);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .video-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(0, 102, 179, 0.2);
+            border-left-width: 8px;
+        }
+        
+        .video-item.evaluation {
+            background: linear-gradient(135deg, var(--immunotec-accent), var(--immunotec-light-blue));
+            border-left-color: var(--immunotec-white);
+            color: var(--immunotec-white);
+        }
+        
+        .video-item.evaluation .video-title,
+        .video-item.evaluation .video-description {
+            color: var(--immunotec-white);
+        }
+        
+        .video-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--immunotec-blue);
+            min-width: 60px;
+            text-align: center;
+            line-height: 1;
+        }
+        
+        .video-item.evaluation .video-number {
+            color: var(--immunotec-white);
+        }
+        
+        .video-content {
+            flex: 1;
+        }
+        
+        .video-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--immunotec-dark-blue);
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        
+        .video-description {
+            font-size: 1rem;
+            color: var(--immunotec-text);
+            line-height: 1.6;
+        }
+        
+        /* BOOKS SECTION */
+        .books-section {
+            background: linear-gradient(135deg, var(--immunotec-light-gray) 0%, var(--immunotec-white) 100%);
+            padding: 60px 20px;
+            margin: 60px 0;
+            border-radius: 25px;
+            box-shadow: 0 15px 50px rgba(0, 102, 179, 0.1);
+            border: 2px solid var(--immunotec-gray);
+        }
+        
+        .books-title {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            color: var(--immunotec-blue);
+            margin-bottom: 20px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .books-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--immunotec-text);
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+        
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .book-card {
+            background: var(--immunotec-white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 102, 179, 0.15);
+            transition: all 0.4s ease;
+            border: 3px solid var(--immunotec-gray);
+            position: relative;
+        }
+        
+        .book-card::before {
+            content: '📚';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 2.5rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 3;
+        }
+        
+        .book-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 50px rgba(0, 102, 179, 0.3);
+            border-color: var(--immunotec-blue);
+        }
+        
+        .book-card:hover::before {
+            opacity: 1;
+        }
+        
+        .book-cover {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        .book-card:hover .book-cover {
+            transform: scale(1.05);
+        }
+        
+        .book-cover-placeholder {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--immunotec-sky) 0%, var(--immunotec-light-blue) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: var(--immunotec-dark-blue);
+            text-align: center;
+            padding: 30px;
+            font-weight: 600;
+        }
+        
+        .book-info {
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .book-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            color: var(--immunotec-blue);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .book-author {
+            font-size: 1rem;
+            color: var(--immunotec-text);
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
+        .book-download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--immunotec-blue), var(--immunotec-dark-blue));
+            color: var(--immunotec-white);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 102, 179, 0.3);
+            cursor: pointer;
+            border: none;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .book-download-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(0, 102, 179, 0.5);
+        }
+        
+        .book-badge {
+            display: inline-block;
+            background: var(--immunotec-accent);
+            color: var(--immunotec-white);
+            padding: 6px 15px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* REGISTRATION FORM */
+        .registration-box {
+            background: var(--immunotec-white);
+            border: 3px solid var(--immunotec-blue);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px auto;
+            max-width: 600px;
+            box-shadow: 0 15px 40px rgba(0, 102, 179, 0.2);
+        }
+        
+        .registration-box h3 {
+            text-align: center;
+            color: var(--immunotec-blue);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--immunotec-dark-blue);
+            margin-bottom: 8px;
+            font-size: 1.05rem;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid var(--immunotec-gray);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: 'Roboto', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--immunotec-blue);
+            box-shadow: 0 0 10px rgba(0, 102, 179, 0.2);
+        }
+        
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--immunotec-blue), var(--immunotec-dark-blue));
+            color: var(--immunotec-white);
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+            box-shadow: 0 5px 20px rgba(0, 102, 179, 0.3);
+        }
+        
+        .submit-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 30px rgba(0, 102, 179, 0.5);
+        }
+        
+        .form-note {
+            text-align: center;
+            margin-top: 20px;
+            color: var(--immunotec-text);
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .logo-text {
+                font-size: 2.5rem;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .video-intro-title {
+                font-size: 1.6rem;
+            }
+            
+            .videos-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .video-wrapper {
+                flex: 0 0 100%;
+                max-width: 100%;
+                min-width: 100%;
+            }
+            
+            .video-frame {
+                height: 450px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta a {
+                font-size: 1.1rem;
+                padding: 18px 35px;
+            }
+            
+            .books-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .books-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<section class="header">
+    <div class="container">
+        <div class="logo-container">
+            <div class="logo-text">IMMUNOTEC</div>
+        </div>
+        <h1>Sistema GO PRO MLM</h1>
+        <p><strong>Sistema de Capacitación Profesional</strong></p>
+        <span class="universal-badge">✅ Líder: Alexa Torres</span>
+    </div>
+</section>
+
+<div class="container">
+
+    <!-- VIDEO PRESENTATION SECTION -->
+    <section class="video-section">
+        <div class="container">
+            <h2 class="video-intro-title">🎥 Descubre Por Qué Este Sistema Cambiará Tu Red Immunotec</h2>
+            <p class="video-intro-subtitle">
+                3 videos que explican por qué necesitas el Sistema de 20 Videos GO PRO<br>
+                para transformar a tus distribuidores en duplicadores profesionales
+            </p>
+  
+            <div class="videos-container">
+                <!-- VIDEO 1 -->
+                <div class="video-wrapper">
+                    <iframe 
+                        class="video-frame"
+                        src="https://www.youtube.com/embed/58ndpgUyW0o"
+                        title="Video 1 - Sistema GO PRO"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                    <div class="video-label">🎯 Video 1: Del Impostor al Profesional</div>
+                    <div class="video-description-card">
+                        Por qué el 80% de networkers fracasan sin un sistema estructurado de capacitación
+                    </div>
+                </div>
+              
+                <!-- VIDEO 2 -->
+                <div class="video-wrapper">
+                    <iframe 
+                        class="video-frame"
+                        src="https://www.youtube.com/embed/8w9il8cBUfA"
+                        title="Video 2 - Sistema GO PRO"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                    <div class="video-label">🔥 Video 2: El Método Eric Worre</div>
+                    <div class="video-description-card">
+                        Cómo la metodología GO PRO ha creado miles de networkers de 6 cifras
+                    </div>
+                </div>
+                
+                <!-- VIDEO 3 -->
+                <div class="video-wrapper">
+                    <iframe 
+                        class="video-frame"
+                        src="https://www.youtube.com/embed/S7ScvuaqYGU"
+                        title="Video 3 - Sistema GO PRO"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                    <div class="video-label">💎 Video 3: Duplicación Automatizada</div>
+                    <div class="video-description-card">
+                        Recupera tu tiempo mientras tu equipo se capacita profesionalmente sin ti
+                    </div>
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 35px; color: var(--immunotec-text); font-size: 1rem; font-weight: 500;">
+                <strong style="color: var(--immunotec-blue);">📌 IMPORTANTE:</strong> Reemplaza "VIDEO_ID_1", "VIDEO_ID_2" y "VIDEO_ID_3" con los IDs reales de tus videos de YouTube
+            </p>
+        </div>
+    </section>
+
+    <!-- LEADER INTRO BOX -->
+    <div class="container">
+        <div class="leader-intro-box">
+            <h2 style="text-align: center; color: var(--immunotec-blue); margin-bottom: 20px; padding-left: 0;">
+                👩‍💼 Sistema Creado por Alexa Torres
+            </h2>
+            <p style="text-align: center; font-size: 1.2rem; color: var(--immunotec-text); line-height: 1.8;">
+                <strong style="color: var(--immunotec-dark-blue);">Líder Immunotec</strong> especializada en construcción de equipos profesionales<br>
+                utilizando la metodología GO PRO de Eric Worre para el mercado latino.
+            </p>
+        </div>
+    </div>
+
+    <!-- IMMUNOTEC BRANDING -->
+    <div class="brands-box">
+        <h2>💊 Sistema Profesional Immunotec</h2>
+        <p>
+            Este sistema de capacitación está diseñado exclusivamente para construir<br>
+            <strong>equipos profesionales y duplicables en Immunotec.</strong>
+        </p>
+        <p class="brands-box-subtitle">
+            Aprende las habilidades que necesitas para tener éxito en tu negocio de salud y bienestar
+        </p>
+        <div class="immunotec-logo">
+            <a href="https://www.immunotec.com" target="_blank">
+                IMMUNOTEC.COM
+            </a>
+        </div>
+    </div>
+
+    <!-- A QUIÉN VA DIRIGIDO -->
+    <h2>🎯 A QUIÉN VA DIRIGIDO</h2>
+    <div class="box">
+        <ul>
+            <li><strong>Distribuidores Immunotec</strong> que buscan profesionalizar su negocio</li>
+            <li>Líderes con equipos que necesitan estructura y capacitación clara</li>
+            <li>Partners cansados de:
+                <ul>
+                    <li>❌ Improvisar entrenamientos cada semana</li>
+                    <li>❌ Repetir lo mismo 1 a 1 con cada nuevo</li>
+                    <li>❌ Ver equipos que entran motivados y se van en 60 días</li>
+                    <li>❌ Depender de eventos presenciales que pocos asisten</li>
+                </ul>
+            </li>
+            <li>Networkers que quieren <strong>un sistema automatizado que trabaje por ellos</strong></li>
+        </ul>
+    </div>
+
+    <!-- BIG IDEA -->
+    <div class="highlight-box">
+        <h3>💡 LA GRAN IDEA</h3>
+        <p style="font-size: 1.2rem; line-height: 1.8;">
+            <strong>No vendemos videos.</strong><br>
+            <strong>No vendemos cursos genéricos.</strong><br><br>
+            Vendemos un <span style="color: var(--immunotec-sky); font-weight: 700;">SISTEMA COMPLETO</span> que convierte<br>
+            distribuidores normales en duplicadores profesionales de Immunotec.
+        </p>
+    </div>
+
+    <!-- TITULAR -->
+    <h2>🚀 Convierte tu Red Immunotec en un Sistema de Duplicación REAL en 30 Días</h2>
+    <div class="box">
+        <p style="font-size: 1.15rem;">
+            Un plan profesional de <strong>20 videos GO PRO + Funnel personalizado</strong><br>
+            para que tu equipo Immunotec aprenda <strong>qué hacer, cómo hacerlo y por qué hacerlo</strong><br>
+            (sin que tú estés repitiendo lo mismo todos los días).
+        </p>
+        <p style="margin-top: 25px; color: var(--immunotec-blue); font-weight: bold;">
+            ✅ Diseñado específicamente para distribuidores Immunotec<br>
+            ✅ Se personaliza 100% con TU marca y TU nombre<br>
+            ✅ Habilidades universales aplicadas al negocio Immunotec
+        </p>
+    </div>
+
+    <!-- PROBLEMA -->
+    <h2>🔴 EL PROBLEMA QUE ENFRENTAN LOS DISTRIBUIDORES IMMUNOTEC</h2>
+    <div class="box">
+        <p style="font-size: 1.1rem;">La realidad de muchos distribuidores Immunotec:</p>
+        <p>✔ Tu gente entra <strong>motivada</strong> por los productos</p>
+        <p>✔ Al mes se <strong>desorienta</strong> (no sabe cómo construir el negocio)</p>
+        <p>✔ Al segundo mes se <strong>apaga</strong> (porque no ve resultados en ventas ni reclutamiento)</p>
+        <p>✔ Y tú vuelves a empezar… <strong>buscando más distribuidores</strong></p>
+        <br>
+        <p style="font-size: 1.2rem; color: var(--immunotec-blue);"><strong>👉 Eso NO es falta de productos buenos.</strong></p>
+        <p style="font-size: 1.2rem; color: var(--immunotec-dark-blue);"><strong>👉 Es falta de SISTEMA DE CAPACITACIÓN.</strong></p>
+    </div>
+
+    <!-- ESTADÍSTICAS -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-number">80%</div>
+            <div class="stat-label">De los nuevos abandona<br>en los primeros 90 días</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">95%</div>
+            <div class="stat-label">No tiene un plan claro<br>de qué hacer día a día</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">70%</div>
+            <div class="stat-label">Nunca recibe capacitación<br>estructurada y profesional</div>
+        </div>
+    </div>
+
+    <!-- SOLUCIÓN -->
+    <h2>✅ LA SOLUCIÓN: SISTEMA GO PRO PARA IMMUNOTEC</h2>
+    <div class="box">
+        <h3 style="color: var(--immunotec-blue);">Imagina esto 👇</h3>
+        <p>Cada persona que entra a tu red Immunotec:</p>
+        <ul>
+            <li>✅ Recibe un <strong>camino claro de 30 días</strong></li>
+            <li>✅ Ve <strong>1 video profesional diario</strong></li>
+            <li>✅ Aprende <strong>habilidades reales de MLM</strong> (no solo información de productos)</li>
+            <li>✅ Sigue un <strong>sistema paso a paso</strong></li>
+            <li>✅ Y empieza a <strong>duplicar tu negocio Immunotec</strong></li>
+        </ul>
+        <br>
+        <p style="font-size: 1.3rem; color: var(--immunotec-blue); font-weight: bold; text-align: center;">
+            🎯 SIN depender de ti para cada pregunta.
+        </p>
+    </div>
+
+    <!-- CONTENIDO -->
+    <h2>📦 QUÉ INCLUYE EL PAQUETE COMPLETO</h2>
+
+    <div class="box">
+        <h3>🎥 1. Plan de Capacitación GO PRO (20 videos profesionales)</h3>
+        <ul>
+            <li><strong>4 semanas completas</strong></li>
+            <li><strong>1 video por día</strong> (lunes a viernes)</li>
+            <li>Basado en <strong>Eric Worre – GO PRO</strong> (el libro #1 de MLM en el mundo)</li>
+            <li>Contenido: <strong>Mentalidad + Habilidades + Liderazgo + Duplicación</strong></li>
+            <li><strong>Adaptado para Immunotec</strong> (cómo aplicar cada habilidad a tu negocio)</li>
+        </ul>
+        <p style="margin-top: 20px; color: var(--immunotec-blue);">
+            <strong>Temas incluidos:</strong><br>
+            ✔ Mindset del profesional vs amateur<br>
+            ✔ Prospección efectiva para Immunotec<br>
+            ✔ Invitación sin presión<br>
+            ✔ Presentación del negocio y productos<br>
+            ✔ Seguimiento y cierre<br>
+            ✔ Manejo de objeciones comunes<br>
+            ✔ Construcción de cultura de equipo<br>
+            ✔ Liderazgo por ejemplo
+        </p>
+    </div>
+
+    <div class="box">
+        <h3>🎨 2. Funnel de Ventas PERSONALIZADO 100% PARA TI</h3>
+        <p style="font-size: 1.1rem; color: var(--immunotec-blue); font-weight: bold;">
+            NO te damos un embudo genérico.<br>
+            Te damos <span style="color: var(--immunotec-dark-blue);">TU PROPIO SISTEMA</span> con:
+        </p>
+        <ul style="margin-top: 15px;">
+            <li>✅ <strong>Tu nombre</strong> (eres TÚ el líder)</li>
+            <li>✅ <strong>Tu marca Immunotec personal</strong></li>
+            <li>✅ <strong>Tu WhatsApp</strong> (la gente te contacta directamente)</li>
+            <li>✅ <strong>Tu visión y valores</strong></li>
+            <li>✅ <strong>Tu logo y colores</strong> (si los tienes)</li>
+            <li>✅ <strong>Branding Immunotec integrado</strong></li>
+        </ul>
+        <p style="margin-top: 20px; background: var(--immunotec-light-gray); padding: 20px; border-radius: 10px; border-left: 4px solid var(--immunotec-blue);">
+            <strong>Resultado:</strong> Un sistema que luce 100% profesional, con branding Immunotec,<br>
+            y que funciona 24/7 educando a tu equipo sin que tengas que estar presente.
+        </p>
+    </div>
+
+    <div class="box">
+        <h3>🗺️ 3. Ruta de Duplicación Paso a Paso</h3>
+        <p>Tu nuevo distribuidor Immunotec sabe exactamente qué hacer cada día:</p>
+        <ul>
+            <li><strong>Día 1:</strong> Bienvenida + visión del negocio Immunotec + mentalidad correcta</li>
+            <li><strong>Día 7:</strong> Entiende el plan de compensación y cómo ganar dinero</li>
+            <li><strong>Día 15:</strong> Hace sus primeras invitaciones y presenta los productos</li>
+            <li><strong>Día 30:</strong> Ya duplica (está entrenando a SU gente nueva)</li>
+        </ul>
+        <p style="margin-top: 20px; color: var(--immunotec-blue); font-weight: bold;">
+            📊 Cada persona tiene un PLAN CLARO.<br>
+            No más confusión. No más "¿y ahora qué hago?"
+        </p>
+    </div>
+
+    <div class="box">
+        <h3>🆓 4. Sistema "Líder Libre"</h3>
+        <p style="font-size: 1.1rem;">Antes:</p>
+        <ul>
+            <li>❌ Tú explicabas todo sobre Immunotec</li>
+            <li>❌ Tú repetías el plan de compensación 20 veces</li>
+            <li>❌ Tú eras el "gurú" del que todos dependían</li>
+        </ul>
+        <p style="font-size: 1.1rem; margin-top: 20px;">Ahora:</p>
+        <ul>
+            <li>✅ <strong>El sistema educa</strong></li>
+            <li>✅ <strong>El funnel capacita</strong></li>
+            <li>✅ <strong>Los videos entrenan</strong></li>
+            <li>✅ <strong>Tú LIDERAS</strong> (no explicas lo básico 100 veces)</li>
+        </ul>
+        <p style="margin-top: 25px; text-align: center; font-size: 1.2rem; color: var(--immunotec-blue); font-weight: bold;">
+            🎯 Recuperas tu tiempo. Multiplicas tu impacto.
+        </p>
+    </div>
+
+    <!-- AUTORIDAD -->
+    <h2>🏆 POR QUÉ ESTE SISTEMA FUNCIONA</h2>
+    <div class="box">
+        <ul style="font-size: 1.05rem;">
+            <li>✅ <strong>Diseñado específicamente para Immunotec</strong></li>
+            <li>✅ <strong>Basado en metodología probada</strong> (Eric Worre – GO PRO, 25+ años)</li>
+            <li>✅ <strong>Forma profesionales, no improvisados</strong></li>
+            <li>✅ <strong>Es personalizable</strong> (se adapta a TU estilo de liderazgo)</li>
+            <li>✅ <strong>Automatiza la capacitación</strong> (trabaja 24/7 sin ti)</li>
+            <li>✅ <strong>Aumenta la retención de distribuidores</strong></li>
+            <li>✅ <strong>Genera duplicación real</strong></li>
+        </ul>
+        <br>
+        <p style="font-size: 1.3rem; color: var(--immunotec-blue); text-align: center; font-weight: bold;">
+            La gente NO fracasa en Immunotec por falta de buenos productos…
+        </p>
+        <p style="font-size: 1.3rem; color: var(--immunotec-dark-blue); text-align: center; font-weight: bold;">
+            Fracasa por NO SABER CÓMO CONSTRUIR EL NEGOCIO.
+        </p>
+        <p style="margin-top: 20px; text-align: center; color: var(--immunotec-light-blue);">
+            Este sistema les da el MAPA COMPLETO para tener éxito en Immunotec.
+        </p>
+    </div>
+
+    <!-- COMPARACIÓN -->
+    <h2>📊 ANTES vs DESPUÉS del Sistema GO PRO</h2>
+    <div class="box">
+        <table>
+            <tr>
+                <th>❌ SIN Sistema</th>
+                <th>✅ CON Sistema GO PRO</th>
+            </tr>
+            <tr>
+                <td>Entrenas 1 a 1 todo el tiempo</td>
+                <td style="color: var(--immunotec-blue); font-weight: bold;">El sistema capacita automáticamente</td>
+            </tr>
+            <tr>
+                <td>Repites lo mismo 50 veces</td>
+                <td style="color: var(--immunotec-blue); font-weight: bold;">Videos profesionales lo explican</td>
+            </tr>
+            <tr>
+                <td>Tu equipo improvisa</td>
+                <td style="color: var(--immunotec-blue); font-weight: bold;">Tu equipo sigue un plan claro</td>
+            </tr>
+            <tr>
+                <td>80% abandona en 90 días</td>
+                <td style="color: var(--immunotec-blue); font-weight: bold;">Retención y duplicación REAL</td>
+            </tr>
+            <tr>
+                <td>Tú eres el cuello de botella</td>
+                <td style="color: var(--immunotec-blue); font-weight: bold;">Tu red Immunotec crece sin ti</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- INVERSIÓN -->
+    <h2>💰 INVERSIÓN Y VALOR</h2>
+    <div class="box" style="border: 3px solid var(--immunotec-blue);">
+        <h3 style="color: var(--immunotec-blue); text-align: center; margin-top: 0;">¿Cuánto cuesta seguir perdiendo distribuidores cada mes?</h3>
+        <p style="text-align: center; margin-top: 20px;">
+            Si pierdes 5 distribuidores al mes porque no tienen claridad...<br>
+            Y cada uno podría generar $500 USD mensuales...<br>
+            Estás perdiendo <strong style="color: var(--immunotec-blue); font-size: 1.3rem;">$2,500 USD/mes</strong>
+        </p>
+        <p style="text-align: center; margin-top: 30px; font-size: 1.2rem; color: var(--immunotec-dark-blue); font-weight: bold;">
+            El Sistema GO PRO es una inversión ÚNICA<br>
+            que te ahorra esa pérdida CADA MES.
+        </p>
+        <p style="text-align: center; margin-top: 25px; color: var(--immunotec-text);">
+            Precio especial para distribuidores Immunotec.<br>
+            <strong>Solicita información por WhatsApp.</strong>
+        </p>
+    </div>
+
+    <!-- BONOS -->
+    <h2>🎁 BONOS INCLUIDOS</h2>
+    <div class="box">
+        <ul>
+            <li>✅ <strong>Bono 1:</strong> Sesión de estrategia 1-a-1 de 45 minutos para configurar tu funnel</li>
+            <li>✅ <strong>Bono 2:</strong> Plantillas de mensajes para WhatsApp específicas para Immunotec</li>
+            <li>✅ <strong>Bono 3:</strong> Guía "Cómo presentar el sistema a tu equipo Immunotec"</li>
+            <li>✅ <strong>Bono 4:</strong> Acceso a grupo privado de soporte</li>
+            <li>✅ <strong>Bono 5:</strong> Actualizaciones del sistema sin costo por 12 meses</li>
+        </ul>
+    </div>
+
+    <!-- CTA PRINCIPAL -->
+    <div class="cta">
+        <h2 style="color: var(--immunotec-blue);">🔥 ¿Listo para Profesionalizar tu Negocio Immunotec?</h2>
+        <p style="font-size: 1.15rem; margin: 25px 0; color: var(--immunotec-text);">
+            Sistema diseñado exclusivamente para distribuidores Immunotec<br>
+            que quieren construir equipos que se DUPLIQUEN.
+        </p>
+        <p style="font-size: 1.1rem; margin-bottom: 30px; color: var(--immunotec-text);">
+            📲 Escríbeme ahora por WhatsApp y te explico cómo funciona<br>
+            el sistema personalizado para TU red Immunotec.
+        </p>
+        <a href="https://wa.me/522214282564?text=Hola%20Raquel!%20Soy%20distribuidor%20Immunotec%20y%20quiero%20información%20sobre%20el%20Sistema%20GO%20PRO" target="_blank">
+            💬 CONTACTAR POR WHATSAPP
+        </a>
+        <p style="margin-top: 25px; color: var(--immunotec-text);">
+            <strong>Mensaje sugerido:</strong><br>
+            "Hola Raquel! Soy distribuidor Immunotec y quiero información sobre el Sistema GO PRO"
+        </p>
+    </div>
+
+    <!-- FAQ -->
+    <h2>❓ PREGUNTAS FRECUENTES</h2>
+    
+    <div class="box">
+        <h3>¿Este sistema es exclusivo para Immunotec?</h3>
+        <p>SÍ. Este funnel está diseñado y personalizado específicamente para distribuidores de Immunotec, con enfoque en los productos, el plan de compensación y la cultura de la compañía.</p>
+    </div>
+
+    <div class="box">
+        <h3>¿Puedo usar mi propia marca personal?</h3>
+        <p>ABSOLUTAMENTE. El funnel se personaliza 100% con tu nombre, tu foto, tu WhatsApp y tu estilo de liderazgo, siempre manteniendo el branding Immunotec.</p>
+    </div>
+
+    <div class="box">
+        <h3>¿Necesito conocimientos técnicos?</h3>
+        <p>NO. Te entregamos el funnel listo para usar. Solo compartes el link con tu equipo (por WhatsApp, email, redes sociales). Nosotros nos encargamos de la parte técnica.</p>
+    </div>
+
+    <div class="box">
+        <h3>¿Cuánto tiempo toma implementarlo?</h3>
+        <p>El funnel está listo en 3-5 días después de que nos proporcionas tu información personal y fotos. La implementación con tu equipo es inmediata: solo compartes el link.</p>
+    </div>
+
+    <!-- ÚLTIMA LLAMADA -->
+    <div class="highlight-box" style="margin-top: 60px;">
+        <h3>⏰ CUPOS LIMITADOS</h3>
+        <p style="font-size: 1.15rem; line-height: 1.8;">
+            Solo trabajo con un número limitado de distribuidores Immunotec cada mes<br>
+            para garantizar personalización de calidad y soporte dedicado.<br><br>
+            Si estás leyendo esto, todavía hay espacio.<br>
+            Pero no esperes mucho.
+        </p>
+        <a href="https://wa.me/522214282564?text=Quiero%20más%20información%20del%20Sistema%20GO%20PRO%20para%20Immunotec" target="_blank" style="display: inline-block; background: var(--immunotec-white); color: var(--immunotec-blue); padding: 15px 35px; border-radius: 40px; font-weight: bold; text-decoration: none; margin-top: 25px; font-family: 'Montserrat', sans-serif; box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);">
+            📲 SOLICITAR INFORMACIÓN AHORA
+        </a>
+    </div>
+
+    <!-- 20 VIDEOS GO PRO SECTION -->
+    <h2>🎬 Los 20 Videos que Transformarán tu Negocio Immunotec</h2>
+    <div class="box" style="background: linear-gradient(135deg, var(--immunotec-white) 0%, var(--immunotec-light-gray) 100%);">
+        <h3 style="text-align: center; color: var(--immunotec-blue); font-size: 1.8rem; margin-bottom: 30px;">
+            📅 Plan de 30 Días - 1 Video Diario (Lunes a Viernes)
+        </h3>
+        <p style="text-align: center; font-size: 1.15rem; color: var(--immunotec-text); margin-bottom: 40px;">
+            Basado en el libro <strong style="color: var(--immunotec-blue);">GO PRO de Eric Worre</strong>,<br>
+            cada video te enseña una habilidad específica que necesitas dominar.<br>
+            <strong style="color: var(--immunotec-dark-blue);">Al finalizar cada semana, tendrás una sesión de evaluación con tu líder upline.</strong>
+        </p>
+        
+        <!-- SEMANA 1: MENTALIDAD Y FUNDAMENTOS -->
+        <div class="week-section">
+            <div class="week-header">
+                <div class="week-number">SEMANA 1</div>
+                <div class="week-title">🧠 Mentalidad del Profesional</div>
+                <div class="week-subtitle">Transforma tu forma de pensar sobre el Network Marketing</div>
+            </div>
+            
+            <div class="videos-list">
+                <div class="video-item">
+                    <div class="video-number">01</div>
+                    <div class="video-content">
+                        <div class="video-title">🎯 "De Amateur a Profesional: La Decisión que Cambia Todo"</div>
+                        <div class="video-description">Descubre la diferencia crucial entre jugar al MLM y construir un negocio real. El 97% falla porque nunca toma esta decisión.</div>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <div class="video-number">02</div>
+                    <div class="video-content">
+                        <div class="video-title">💡 "Destruye los 3 Mitos que Están Matando tu Negocio"</div>
+                        <div class="video-description">Las creencias falsas sobre el MLM que te mantienen atrapado. Cómo reemplazarlas con la verdad que genera resultados.</div>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <div class="video-number">03</div>
+                    <div class="video-content">
+                        <div class="video-title">🔥 "El Secreto del Compromiso: Por Qué 'Intentarlo' Te Hace Fracasar"</div>
+                        <div class="video-description">La diferencia entre estar interesado y estar comprometido. Cómo tomar la decisión irrevocable del éxito.</div>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <div class="video-number">04</div>
+                    <div class="video-content">
+                        <div class="video-title">⚡ "Desarrolla tu 'Postura' de Networker Profesional"</div>
+                        <div class="video-description">La confianza magnética que atrae prospectos como imán. Cómo proyectar autoridad sin ser arrogante.</div>
+                    </div>
+                </div>
+                
+                <div class="video-item evaluation">
+                    <div class="video-number">✅</div>
+                    <div class="video-content">
+                        <div class="video-title">📊 EVALUACIÓN SEMANA 1 con tu Líder</div>
+                        <div class="video-description">Sesión 1-a-1: ¿Ya tomaste la decisión de ser PRO? ¿Qué creencias limitantes identificaste? Plan de acción para Semana 2.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SEMANA 2: PROSPECCIÓN MAESTRA -->
+        <div class="week-section">
+            <div class="week-header">
+                <div class="week-number">SEMANA 2</div>
+                <div class="week-title">🎣 Prospección Sin Rechazo</div>
+                <div class="week-subtitle">Domina el arte de encontrar personas interesadas (no perseguir)</div>
+            </div>
+            
+            <div class="videos-list">
+                <div class="video-item">
+                    <div class="video-number">05</div>
+                    <div class="video-content">
+                        <div class="video-title">🗣️ "Las 5 Frases Mágicas que Hacen que la Gente Diga '¡Cuéntame Más!'"</div>
+                        <div class="video-description">Scripts probados que despiertan curiosidad sin sonar vendedor. Nunca más vuelvas a perseguir a nadie.</div>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <div class="video-number">06</div>
+                    <div class="video-content">
+                        <div class="video-title">📱 "Prospección en Redes Sociales: Cómo Generar 10 Prospectos Diarios"</div>
+                        <div class="video-description">El método exacto para usar Facebook, Instagram y WhatsApp sin ser spam. Atrae, no persigas.</div>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <div class="video-number">07</div>
+                    <div class="video-content">
+                        <div class="video-title">🎯 "Tu Lista de 100: El Activo Más Valioso de tu Negocio"</div>
+                        <div class="video-description">Cómo crear tu lista caliente, tibia y fría. El sistema de categorización que multiplica tu efectividad.</div>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <div class="video-number">08</div>
+                    <div class="video-content">
+                        <div class="video-title">🚀 "Prospección en Caliente: Convierte Conversaciones Casuales en Oportunidades"</div>
+                        <div class="video-description">El método para prospectar en el supermercado, gym, café... sin incomodar a nadie. Networking natural.</div>
+                    </div>
+                </div>
+                
+                <div class="video-item evaluation">
+                    <div class="video-number">✅</div>
+                    <div class="video-content">
+                        <div class="video-title">📊 EVALUACIÓN SEMANA 2 con tu Líder</div>
+                        <div class="video-description">Revisión: ¿Completaste tu lista de 100? ¿Cuántos prospectos hiciste? Roleplay de scripts. Ajustes personalizados.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SEMANA 3: INVITACIÓN Y PRESENTACIÓN -->
+        <div class="week-section">
+            <div class="week-header">
+                <div class="week-number">SEMANA 3</div>
+                <div class="week-title">🎤 Invitación y Presentación Efectiva</div>
+                <div class="week-subtitle">Haz que digan "SÍ" sin presión ni manipulación</div>
+            </div>
+            
+            <div class="videos-list">
+                <div class="video-item">
+                    <div class="video-number">09</div>
+                    <div class="video-content">
+                        <div class="video-title">📞 "La Invitación de 2 Minutos que Nunca Falla"</div>
+                        <div class="video-description">El script exacto para invitar sin explicar. Por qué "menos es más" y cómo despertar curiosidad masiva.</div>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <div class="video-number">10</div>
+                    <div class="video-content">
+                        <div class="video-title">🎭 "El Arte de la Presentación: Los 7 Elementos que SIEMPRE Funcionan"</div>
+                        <div class="video-description">La estructura exacta de una presentación ganadora. Qué incluir, qué omitir, y cómo cerrar con impacto.</div>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <div class="video-number">11</div>
+                    <div class="video-content">
+                        <div class="video-title">🔑 "Presentaciones 1-a-1 vs Grupales: Cuándo Usar Cada Una"</div>
+                        <div class="video-description">Estrategias para cafeterías, videollamadas, eventos en casa. Adapta tu presentación al contexto.</div>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <div class="video-number">12</div>
+                    <div class="video-content">
+                        <div class="video-title">💎 "Usa Herramientas de Terceros: Deja que el Sistema Venda por Ti"</div>
+                        <div class="video-description">Videos, webinars, apps. Cómo usar herramientas profesionales para eliminar objeciones antes de que surjan.</div>
+                    </div>
+                </div>
+                
+                <div class="video-item evaluation">
+                    <div class="video-number">✅</div>
+                    <div class="video-content">
+                        <div class="video-title">📊 EVALUACIÓN SEMANA 3 con tu Líder</div>
+                        <div class="video-description">Roleplay de invitación y presentación. ¿Cuántas presentaciones hiciste? Feedback personalizado y ajustes.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SEMANA 4: SEGUIMIENTO, CIERRE Y DUPLICACIÓN -->
+        <div class="week-section">
+            <div class="week-header">
+                <div class="week-number">SEMANA 4</div>
+                <div class="week-title">💰 Cierre, Objeciones y Duplicación</div>
+                <div class="week-subtitle">Convierte prospectos en socios y socios en líderes</div>
+            </div>
+            
+            <div class="videos-list">
+                <div class="video-item">
+                    <div class="video-number">13</div>
+                    <div class="video-content">
+                        <div class="video-title">🎯 "Seguimiento Sin Ser Pesado: El Sistema de 7 Toques"</div>
+                        <div class="video-description">El 80% del dinero está en el seguimiento. Cómo hacerlo con clase y persistencia inteligente.</div>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <div class="video-number">14</div>
+                    <div class="video-content">
+                        <div class="video-title">🛡️ "Las 10 Objeciones Más Comunes y Cómo Pulverizarlas"</div>
+                        <div class="video-description">"No tengo tiempo", "No tengo dinero", "Es una pirámide". Respuestas que convierten dudas en decisiones.</div>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <div class="video-number">15</div>
+                    <div class="video-content">
+                        <div class="video-title">🤝 "El Cierre Natural: Cómo Hacer que Ellos Pidan Unirse"</div>
+                        <div class="video-description">Deja de rogar. El método para que los prospectos se vendan solos y te pidan cómo empezar.</div>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <div class="video-number">16</div>
+                    <div class="video-content">
+                        <div class="video-title">🎓 "Inicio Rápido: Los Primeros 48 Horas de tu Nuevo Socio"</div>
+                        <div class="video-description">El entrenamiento de arranque que determina si duplicarán o abandonarán. Checklist completo incluido.</div>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <div class="video-number">17</div>
+                    <div class="video-content">
+                        <div class="video-title">🔄 "Duplicación Real: Cómo Enseñar Sin Convertirte en el Cuello de Botella"</div>
+                        <div class="video-description">El sistema que permite a tu equipo crecer sin ti. Crea líderes, no dependientes.</div>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <div class="video-number">18</div>
+                    <div class="video-content">
+                        <div class="video-title">👥 "Construye Cultura de Equipo: El Pegamento que Mantiene Todo Unido"</div>
+                        <div class="video-description">Rituales, reconocimientos y ambiente que hace que tu gente QUIERA quedarse y dar lo mejor.</div>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <div class="video-number">19</div>
+                    <div class="video-content">
+                        <div class="video-title">📈 "Liderazgo por Ejemplo: Lidera desde el Frente, No desde Atrás"</div>
+                        <div class="video-description">Tu equipo hace lo que tú haces, no lo que dices. Cómo ser el ejemplo que inspira acción masiva.</div>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <div class="video-number">20</div>
+                    <div class="video-content">
+                        <div class="video-title">🏆 "Los Hábitos Diarios del Networker Profesional"</div>
+                        <div class="video-description">La rutina exacta que separa a los que ganan 6 cifras de los que luchan. Consistencia es el secreto.</div>
+                    </div>
+                </div>
+                
+                <div class="video-item evaluation">
+                    <div class="video-number">✅</div>
+                    <div class="video-content">
+                        <div class="video-title">📊 EVALUACIÓN FINAL SEMANA 4 con tu Líder</div>
+                        <div class="video-description">Graduación GO PRO: Revisión completa de 30 días. Plan de crecimiento para los próximos 90 días. ¡Celebración de logros!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- RESUMEN DEL SISTEMA -->
+        <div style="background: linear-gradient(135deg, var(--immunotec-blue), var(--immunotec-dark-blue)); padding: 40px; border-radius: 20px; margin-top: 50px; color: var(--immunotec-white);">
+            <h3 style="text-align: center; color: var(--immunotec-white); margin-bottom: 25px; font-size: 2rem;">
+                🎯 ¿Cómo Funciona el Sistema de 30 Días?
+            </h3>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 30px;">
+                <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 15px; text-align: center;">
+                    <div style="font-size: 2.5rem; margin-bottom: 10px;">📅</div>
+                    <div style="font-weight: 700; font-size: 1.2rem; margin-bottom: 10px;">LUNES - VIERNES</div>
+                    <div style="font-size: 0.95rem;">1 video diario (15-20 min) + tarea práctica</div>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 15px; text-align: center;">
+                    <div style="font-size: 2.5rem; margin-bottom: 10px;">✅</div>
+                    <div style="font-weight: 700; font-size: 1.2rem; margin-bottom: 10px;">VIERNES</div>
+                    <div style="font-size: 0.95rem;">Sesión de evaluación semanal con tu líder upline</div>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 15px; text-align: center;">
+                    <div style="font-size: 2.5rem; margin-bottom: 10px;">📊</div>
+                    <div style="font-weight: 700; font-size: 1.2rem; margin-bottom: 10px;">SEGUIMIENTO</div>
+                    <div style="font-size: 0.95rem;">Feedback personalizado y ajustes a tu plan de acción</div>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 15px; text-align: center;">
+                    <div style="font-size: 2.5rem; margin-bottom: 10px;">🏆</div>
+                    <div style="font-weight: 700; font-size: 1.2rem; margin-bottom: 10px;">CERTIFICACIÓN</div>
+                    <div style="font-size: 0.95rem;">Al día 30, eres un networker profesional certificado</div>
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 35px; font-size: 1.2rem; font-weight: 600;">
+                🎓 No estás solo en este viaje. Tu líder te acompaña cada semana<br>
+                para asegurar que domines cada habilidad antes de avanzar.
+            </p>
+        </div>
+    </div>
+
+    <!-- BOOKS SECTION -->
+    <div class="books-section">
+        <h2 class="books-title">📚 Libros Gratuitos para tu Desarrollo</h2>
+        <p class="books-subtitle">
+            Regístrate con tu nombre y fecha de nacimiento para descargar estos 3 libros esenciales<br>
+            que transformarán tu mentalidad y habilidades en el Network Marketing
+        </p>
+        
+        <!-- REGISTRATION FORM -->
+        <div class="registration-box">
+            <h3>🎁 Regístrate para Descargar</h3>
+            <form id="registrationForm">
+                <div class="form-group">
+                    <label for="fullName">Nombre Completo *</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="Ej: María González" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="birthDate">Fecha de Nacimiento *</label>
+                    <input type="date" id="birthDate" name="birthDate" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email (opcional)</label>
+                    <input type="email" id="email" name="email" placeholder="tu@email.com">
+                </div>
+                
+                <button type="submit" class="submit-btn">✅ Registrarme y Descargar Libros</button>
+                
+                <p class="form-note">
+                    Al registrarte, aceptas recibir recordatorios y contenido exclusivo de Alexa Torres
+                </p>
+            </form>
+        </div>
+
+
+<div class="books-grid" id="booksSection" style="opacity: 0.3; pointer-events: none;">
+            <!-- LIBRO 1: PADRE RICO PADRE POBRE -->
+            <div class="book-card">
+                <div class="book-cover-placeholder">
+                    📘 PORTADA<br>
+                    Padre Rico Padre Pobre<br>
+                    Robert Kiyosaki<br><br>
+                    <small style="font-size: 0.8rem;">
+ <img src="https://raw.githubusercontent.com/polotorresceo/Immunotec02/main/padre%20rico%20padre%20pobre.jpg" 
+                        alt="Padre Rico Padre Pobre - Robert Kiyosaki" 
+                        class="book-cover">    
+                    </small>
+                </div>
+                <div class="book-info">
+                    <span class="book-badge">📥 Descarga Gratuita</span>
+                    <div class="book-title">Padre Rico Padre Pobre</div>
+                    <div class="book-author">Robert Kiyosaki</div>
+                    <a href="#" class="book-download-btn" onclick="downloadBook('padre-rico'); return false;">
+                        📥 Descargar PDF
+                    </a>
+                </div>
+            </div>
+            
+            <!-- LIBRO 2: CÓMO GANAR AMIGOS -->
+            <div class="book-card">
+                <div class="book-cover-placeholder">
+                    📗 PORTADA<br>
+                    Cómo Ganar Amigos<br>
+                    Dale Carnegie<br><br>
+                    <small style="font-size: 0.8rem;">
+                        
+                        <img src="https://i.ibb.co/rKPK6s2c/como-ganar-amigos.jpg"
+                            alt="como ganar amigos"
+                            class="book-cover">
+                    </small>
+                </div>
+                <div class="book-info">
+                    <span class="book-badge">📥 Descarga Gratuita</span>
+                    <div class="book-title">Cómo Ganar Amigos e Influir en las Personas</div>
+                    <div class="book-author">Dale Carnegie</div>
+                    <a href="#" class="book-download-btn" onclick="downloadBook('ganar-amigos'); return false;">
+                        📥 Descargar PDF
+                    </a>
+                </div>
+            </div>
+            
+            <!-- LIBRO 3: GO PRO -->
+            <div class="book-card">
+                <div class="book-cover-placeholder">
+                    📙 PORTADA<br>
+                    Go Pro<br>
+                    Eric Worre<br><br>
+                    <small style="font-size: 0.8rem;">
+                        Reemplaza con:<br>
+                        &lt;img src="URL_PORTADA_3" alt="Go Pro" class="book-cover"&gt;
+      <img src="https://i.ibb.co/TB8VLFwS/Chat-GPT-Image-18-feb-2026-20-01-04.png" alt="Chat GPT Image 18 feb 2026 20 01 04" border="0">                  
+                    </small>
+                </div>
+                <div class="book-info">
+                    <span class="book-badge">📥 Descarga Gratuita</span>
+                    <div class="book-title">Go Pro: 7 Pasos para Convertirse en un Profesional del Mercadeo en Red</div>
+                    <div class="book-author">Eric Worre</div>
+                    <a href="#" class="book-download-btn" onclick="downloadBook('go-pro'); return false;">
+                        📥 Descargar PDF
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let userRegistered = false;
+        let userData = {};
+        
+        // Manejar el formulario de registro
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const fullName = document.getElementById('fullName').value;
+            const birthDate = document.getElementById('birthDate').value;
+            const email = document.getElementById('email').value;
+            
+            // Guardar datos del usuario
+            userData = {
+                nombre: fullName,
+                fechaNacimiento: birthDate,
+                email: email,
+                fechaRegistro: new Date().toISOString()
+            };
+            
+            // Enviar datos a Google Sheets o tu sistema
+            // AQUÍ PUEDES INTEGRAR CON GOOGLE SHEETS API
+            console.log('Usuario registrado:', userData);
+            
+            // Enviar notificación por WhatsApp (opcional)
+            const whatsappMessage = `Nuevo registro de libros:%0A%0ANombre: ${fullName}%0AFecha de Nacimiento: ${birthDate}%0AEmail: ${email}`;
+            // window.open(`https://wa.me/522214282564?text=${whatsappMessage}`, '_blank');
+            
+            // Marcar como registrado
+            userRegistered = true;
+            
+            // Habilitar la sección de libros
+            const booksSection = document.getElementById('booksSection');
+            booksSection.style.opacity = '1';
+            booksSection.style.pointerEvents = 'auto';
+            
+            // Mostrar mensaje de éxito
+            alert('✅ ¡Registro exitoso! Ahora puedes descargar los libros. Desplázate hacia abajo.');
+            
+            // Scroll suave a la sección de libros
+            booksSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Ocultar el formulario
+            document.querySelector('.registration-box').style.display = 'none';
+        });
+        
+        // Función para descargar libros
+        function downloadBook(bookName) {
+            if (!userRegistered) {
+                alert('⚠️ Por favor regístrate primero para descargar los libros.');
+                document.getElementById('registrationForm').scrollIntoView({ behavior: 'smooth' });
+                return;
+            }
+            
+            // URLs de Google Drive - REEMPLAZA CON TUS URLs REALES
+            const bookUrls = {
+                'padre-rico': 'https://drive.google.com/file/d/TU_ID_ARCHIVO_1/view?usp=sharing',
+                'ganar-amigos': 'https://drive.google.com/file/d/TU_ID_ARCHIVO_2/view?usp=sharing',
+                'go-pro': 'https://drive.google.com/file/d/TU_ID_ARCHIVO_3/view?usp=sharing'
+            };
+            
+            // Registrar descarga
+            console.log('Descarga de libro:', bookName, 'Usuario:', userData);
+            
+            // Abrir el libro en nueva pestaña
+            if (bookUrls[bookName]) {
+                window.open(bookUrls[bookName], '_blank');
+                alert('📚 ¡Libro abierto! Si no se descarga automáticamente, haz clic en "Descargar" en la esquina superior derecha de Google Drive.');
+            } else {
+                alert('⚠️ Por favor contacta a Raquel para obtener el enlace de descarga.');
+            }
+        }
+    </script>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    <p><strong>SISTEMA GO PRO - Alexa Torres</strong></p>
+    <p>Capacitación profesional exclusiva para distribuidores Immunotec</p>
+    <p style="margin-top: 20px;">
+        💊 <a href="https://www.immunotec.com" target="_blank" style="color: var(--immunotec-blue); text-decoration: none; font-weight: bold;">www.immunotec.com</a>
+    </p>
+    <p style="margin-top: 15px;">
+        WhatsApp: <a href="https://wa.me/522214282564" target="_blank" style="color: var(--immunotec-blue); text-decoration: none; font-weight: bold;">221 428 2564</a>
+    </p>
+</div>
+
+</body>
+</html>
